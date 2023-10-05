@@ -12,15 +12,20 @@ public class Atendimento {
 
     private String periodo;
 
-    private String sala;
+    private Integer sala;
 
-    private List predio;
+    private String[] predio;
 
-    public Atendimento(String nomeDoProfessor, String horarioDeAtendimento, String periodo, String sala, JsonArray predio) {
+    public Atendimento() {
+        this.nomeDoProfessor = null;
+        this.horarioDeAtendimento = null;
+        this.periodo = null;
+        this.sala = null;
+        this.predio = null;
     }
 
     public String getNomeDoProfessor() {
-        return nomeDoProfessor;
+        return this.nomeDoProfessor;
     }
 
     public void setNomeDoProfessor(String nomeDoProfessor) {
@@ -28,7 +33,7 @@ public class Atendimento {
     }
 
     public String getHorarioDeAtendimento() {
-        return horarioDeAtendimento;
+        return this.horarioDeAtendimento;
     }
 
     public void setHorarioDeAtendimento(String horarioDeAtendimento) {
@@ -36,26 +41,45 @@ public class Atendimento {
     }
 
     public String getPeriodo() {
-        return periodo;
+        return this.periodo;
     }
 
     public void setPeriodo(String periodo) {
         this.periodo = periodo;
     }
 
-    public String getSala() {
-        return sala;
+    public int getSala() {
+        return this.sala;
     }
 
-    public void setSala(String sala) {
+    public void setSala(int sala) {
         this.sala = sala;
     }
 
-    public List getPredio() {
-        return predio;
+    public String[] getPredio() {
+        return this.predio;
     }
 
-    public void setPredio(List predio) {
-        this.predio = predio;
+    public void setPredio(Integer sala) {
+        if (sala >= 1 && sala <= 5) {
+            String[] predio = new String[]{String.valueOf(1)};
+            this.predio = predio;
+        }
+        else if (sala >= 6 && sala <= 10) {
+            String[] predio = new String[]{String.valueOf(2)};
+            this.predio = predio;
+        }
+        else if (sala >= 11 && sala <= 15) {
+            String[] predio = new String[]{String.valueOf(3)};
+            this.predio = predio;
+        } else if (sala >= 16 && sala <= 20) {
+            String[] predio = new String[]{String.valueOf(4)};
+            this.predio = predio;
+        } else if (sala == 21) {
+            String[] predio = new String[]{String.valueOf(5)};
+            this.predio = predio;
+        } else {
+            throw new IllegalArgumentException("Sala fora do intervalo permitido");
+        }
     }
 }
