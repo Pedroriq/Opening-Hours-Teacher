@@ -11,10 +11,11 @@ public class BuscaAtendimento {
         this.atendimentoService = service;
     }
 
-    public Atendimento buscaAtendimento(int id){
+    public Atendimento buscaAtendimento(String nomeDoProfessor){
+        Atendimento atendimento = atendimentoService.buscaAtendimentos(nomeDoProfessor);
+        return atendimento;
 
-        String atendimentoJson = atendimentoService.busca(id);
-
+        /* 
         JsonObject jsonObject = JsonParser.parseString(atendimentoJson).getAsJsonObject();
 
         return new Atendimento(jsonObject.get("nomeDoProfessor").getAsString(),
@@ -22,5 +23,6 @@ public class BuscaAtendimento {
                 jsonObject.get("periodo").getAsString(),
                 jsonObject.get("sala").getAsString(),
                 jsonObject.get("predio").getAsJsonArray());
+        */
     }
 }
