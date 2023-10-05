@@ -3,6 +3,8 @@ package br.inatel.cdg;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 
+import java.util.Objects;
+
 public class BuscaAtendimento {
 
     AtendimentoService atendimentoService;
@@ -12,17 +14,14 @@ public class BuscaAtendimento {
     }
 
     public Atendimento buscaAtendimento(String nomeDoProfessor){
-        Atendimento atendimento = atendimentoService.buscaAtendimentos(nomeDoProfessor);
-        return atendimento;
+        String atendimentoJson = atendimentoService.buscaAtendimentos(nomeDoProfessor);
 
-        /* 
         JsonObject jsonObject = JsonParser.parseString(atendimentoJson).getAsJsonObject();
 
         return new Atendimento(jsonObject.get("nomeDoProfessor").getAsString(),
                 jsonObject.get("horarioDeAtendimento").getAsString(),
                 jsonObject.get("periodo").getAsString(),
-                jsonObject.get("sala").getAsString(),
-                jsonObject.get("predio").getAsJsonArray());
-        */
+                jsonObject.get("sala").getAsInt());
     }
+
 }
