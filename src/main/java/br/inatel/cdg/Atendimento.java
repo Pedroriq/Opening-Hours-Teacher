@@ -1,5 +1,11 @@
 package br.inatel.cdg;
 
+import java.util.List;
+
+import com.google.gson.Gson;
+
+import java.util.ArrayList;
+
 public class Atendimento {
 
     private String nomeDoProfessor;
@@ -12,12 +18,54 @@ public class Atendimento {
 
     private Integer predio;
 
+    private static List<Atendimento> atendimentos = new ArrayList<Atendimento>();
+
     public Atendimento(String nomeDoProfessor, String horarioDeAtendimento, String periodo, Integer sala) {
         this.nomeDoProfessor = nomeDoProfessor;
         this.horarioDeAtendimento = horarioDeAtendimento;
         this.periodo = periodo;
         this.sala = sala;
-        this.predio = verifyPredio(sala);
+        this.predio = setPredio(sala);
+    }
+
+    public boolean adicionaAtendimentoNaLista() {
+        return atendimentos.add(this);
+    }
+
+    public static String buscaAtendimentoNaLista(String nomeDoProfessor) {
+        for (int i = 0; i < atendimentos.size(); i++) {
+            if (atendimentos.get(i).nomeDoProfessor == nomeDoProfessor) {
+                Gson gson = new Gson();
+                return gson.toJson(atendimentos.get(i));
+            }
+        }
+        return null;
+    }
+
+    public static String atualizaHorarioAtendimento(String nomeDoProfessor, String horarioDeAtendimento) {
+        for (int i = 0; i <= atendimentos.size(); i++) {
+            if (atendimentos.get(i).nomeDoProfessor == nomeDoProfessor) {
+                atendimentos.get(i).horarioDeAtendimento = horarioDeAtendimento;
+                Gson gson = new Gson();
+                return gson.toJson(atendimentos.get(i));
+            }
+        }
+        return null;
+    }
+
+    public static boolean deletaAtendimento(String nomeDoProfessor) {
+        for (int i = 0; i <= atendimentos.size(); i++) {
+            if (atendimentos.get(i).nomeDoProfessor == nomeDoProfessor) {
+                atendimentos.remove(atendimentos.get(i));
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public static boolean deletaTodosAtendimentos() {
+        atendimentos.clear();
+        return true;
     }
 
     public String getNomeDoProfessor() {
@@ -56,11 +104,7 @@ public class Atendimento {
         return this.predio;
     }
 
-    public void setPredio(Integer predio) {
-        this.predio = predio;
-    }
-
-    public Integer verifyPredio(Integer sala){
+    public Integer setPredio(Integer sala){
         if (sala >= 1 && sala <= 5) {
             return 1;
         }
@@ -77,31 +121,7 @@ public class Atendimento {
             return 6;
         }
         else {
-            throw new IllegalArgumentException("Sala fora do intervalo permitido");
+            throw new IllegalArgumentException("Número de sala deve ser maior ou igual a 1");
         }
     }
-
-    /*
-    public void setPredio(Integer sala) {
-        if (sala >= 1 && sala <= 5) {
-            String[] predio = new String[]{String.valueOf(1)};
-            this.predio = predio;
-        }
-        else if (sala >= 6 && sala <= 10) {
-            String[] predio = new String[]{String.valueOf(2)};
-            this.predio = predio;
-        }
-        else if (sala >= 11 && sala <= 15) {
-            String[] predio = new String[]{String.valueOf(3)};
-            this.predio = predio;
-        } else if (sala >= 16 && sala <= 20) {
-            String[] predio = new String[]{String.valueOf(4)};
-            this.predio = predio;
-        } else if (sala >= 21) {
-            String[] predio = new String[]{String.valueOf(6)};
-            this.predio = predio;
-        } else {
-            throw new IllegalArgumentException("Sala fora do intervalo permitido");
-        }
-    }*/
 }
