@@ -9,7 +9,6 @@ public class AtendimentoImpl {
     }
 
     public boolean adicionaAtendimentoNaLista(String nomeDoProfessor, String horarioDeAtendimento, String periodo, Integer sala){
-        atendimentoService.adicionaAtendimentoNaLista(nomeDoProfessor, horarioDeAtendimento, periodo, sala);
         boolean adicionadoComSucesso = atendimentoService.adicionaAtendimentoNaLista(nomeDoProfessor, horarioDeAtendimento, periodo, sala);
         return adicionadoComSucesso;
     }
