@@ -25,11 +25,31 @@ public class TesteAtendimento {
     }
 
     @Test
-    public void testeBuscaAtendimento(){
+    public void testeBuscaAtendimentoChris(){
         Mockito.when(service.buscaAtendimento("Chris")).thenReturn(AtendimentoConst.CHRIS);
 
         String atendimento = this.atendimento.buscaAtendimento("Chris");
         String expectedJson = "{\"nomeDoProfessor\":\"Chris\",\"horarioDeAtendimento\":\"Sexta - 19:30 - 21:10\",\"periodo\":\"Noturno\",\"sala\":3,\"predio\":1}";
+        
+        assertEquals(expectedJson, atendimento);
+    }
+
+    @Test
+    public void testeBuscaAtendimentoAquino(){
+        Mockito.when(service.buscaAtendimento("Aquino")).thenReturn(AtendimentoConst.AQUINO);
+
+        String atendimento = this.atendimento.buscaAtendimento("Aquino");
+        String expectedJson = "{\"nomeDoProfessor\":\"Aquino\",\"horarioDeAtendimento\":\"Segunda - 13:30 - 15:10\",\"periodo\":\"Integral\",\"sala\":10,\"predio\":2}";
+        
+        assertEquals(expectedJson, atendimento);
+    }
+
+    @Test
+    public void testeBuscaAtendimentoVitor(){
+        Mockito.when(service.buscaAtendimento("Vitor")).thenReturn(AtendimentoConst.VITOR);
+
+        String atendimento = this.atendimento.buscaAtendimento("Vitor");
+        String expectedJson = "{\"nomeDoProfessor\":\"Vitor\",\"horarioDeAtendimento\":\"Quarta - 15:30 - 17:10\",\"periodo\":\"Noturno\",\"sala\":8,\"predio\":2}";
         
         assertEquals(expectedJson, atendimento);
     }
