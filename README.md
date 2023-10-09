@@ -29,22 +29,24 @@ Antes de começar, certifique-se de ter o seguinte instalado:
 
 ### Instalação
 
+
 1. Clone este repositório em sua máquina local:
 
-   ```bash
-    git clone git@github.com:Pedroriq/Opening-Hours-Teacher.git
+      ```bash
+   git clone git@github.com:Pedroriq/Opening-Hours-Teacher.git
   
 2. Entrar no diretório Opening-Hours-Teacher:
 
-  ```bash
+    ```bash
     cd Opening-Hours-Teacher
+
   
 3. Instalar projeto:
 
-  ```bash
-    mvn clean install
-  
+    ```bash
+   mvn clean install
+
 4. Executar testes:
 
-  ```bash
+    ```bash
     mvn test
