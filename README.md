@@ -39,7 +39,6 @@ Antes de começar, certifique-se de ter o seguinte instalado:
 
     ```bash
     cd Opening-Hours-Teacher
-
   
 3. Instalar projeto:
 
