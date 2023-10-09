@@ -43,7 +43,7 @@ public class Atendimento {
     }
 
     public static String atualizaHorarioAtendimento(String nomeDoProfessor, String horarioDeAtendimento) {
-        for (int i = 0; i <= atendimentos.size(); i++) {
+        for (int i = 0; i < atendimentos.size(); i++) {
             if (atendimentos.get(i).nomeDoProfessor == nomeDoProfessor) {
                 atendimentos.get(i).horarioDeAtendimento = horarioDeAtendimento;
                 Gson gson = new Gson();
@@ -54,7 +54,7 @@ public class Atendimento {
     }
 
     public static boolean deletaAtendimento(String nomeDoProfessor) {
-        for (int i = 0; i <= atendimentos.size(); i++) {
+        for (int i = 0; i < atendimentos.size(); i++) {
             if (atendimentos.get(i).nomeDoProfessor == nomeDoProfessor) {
                 atendimentos.remove(atendimentos.get(i));
                 return true;
