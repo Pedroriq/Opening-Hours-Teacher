@@ -1,19 +1,14 @@
 # Projeto Horários de Atendimento de Professores
 
-O Projeto de Horários de Atendimento de Professores é uma aplicação baseada em Java que simula um servidor que controla os horários de atendimento.
+O Projeto de Horário de Atendimento de Professores é uma aplicação baseada em Java que simula um servidor que controla o horário de atendimento dos professores.
 
 ## Conteúdo
 
 - [Projeto Horários de Atendimento de Professores](#projeto-horários-de-atendimento-de-professores)
   - [Integrantes](#integrantes)
-  - [Recursos](#recursos)
   - [Primeiros Passos](#primeiros-passos)
     - [Pré-requisitos](#pré-requisitos)
     - [Instalação](#instalação)
-  - [Uso](#uso)
-  - [Contribuições](#contribuições)
-  - [Licença](#licença)
-  - [Agradecimentos](#agradecimentos)
 
 ## Integrantes
 
@@ -21,14 +16,9 @@ O Projeto de Horários de Atendimento de Professores é uma aplicação baseada 
 - Pedro Henrique Rocha
 - Pedro Henrique de Souza
 
-
-## Recursos
-
-- ToDo
-
 ## Primeiros Passos
 
-Siga estas instruções para executar o Projeto Horários de Atendimento em sua máquina local.
+Siga estas instruções para executar o Projeto Opening-Hours-Teacher em sua máquina local.
 
 ### Pré-requisitos
 
@@ -43,3 +33,18 @@ Antes de começar, certifique-se de ter o seguinte instalado:
 
    ```bash
    git clone git@github.com:Pedroriq/Opening-Hours-Teacher.git
+  
+2. Entrar no diretório Opening-Hours-Teacher:
+
+  ```bash
+  cd Opening-Hours-Teacher
+
+3. Instalar projeto:
+
+  ```bash
+  mvn clean install
+
+4. Executar testes:
+
+  ```bash
+  mvn test
